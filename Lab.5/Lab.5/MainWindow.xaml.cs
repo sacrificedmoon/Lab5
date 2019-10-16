@@ -24,5 +24,23 @@ namespace Lab._5
         {
             InitializeComponent();
         }
+
+        private void AddUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            Users newUser = new Users(NameBox.ToString(), EmailBox.ToString());
+            UserListBox newUserListBox = new UserListBox();
+            UserListBox.Items.Add(newUser.Name());
+
+        }
+
+        private void MakeAdminButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveAdminButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
