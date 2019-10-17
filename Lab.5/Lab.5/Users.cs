@@ -1,20 +1,23 @@
-﻿namespace Lab._5
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab._5
 {
-    internal class Users
+    public class Users
     {
-        private string name;
-        private string email;
-        public Users(string userInputName, string userInputMail)
+        public static List<Users> users = new List<Users>();
+        public static List<Users> admins = new List<Users>();
+       
+        public Users(string name, string email)
         {
-            name = userInputName;
-            email = userInputMail;
+            Name = name;
+            Mail = email;
         }
 
-        public string Name()
-        {
-            return name;
-        }
-
-
+        public string Name { get; set; }
+        public string Mail { get; set; }
     }
 }

@@ -20,18 +20,36 @@ namespace Lab._5
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string userInputName;
+        public string userInputMail;
         public MainWindow()
         {
             InitializeComponent();
+            UserListBox.ItemsSource = Users.users;
+            UserListBox.DisplayMemberPath = "Name";
+            AdminListBox.ItemsSource = Users.admins;
+            AdminListBox.DisplayMemberPath = "Name";
         }
 
+        private void RefreshListBoxes()
+        {
+            UserListBox.Items.Refresh();
+            AdminListBox.Items.Refresh();
+        }
+        private void ClearTextFields()
+        {
+            NameBox.Clear();
+            EmailBox.Clear();
+        }
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
-            Users newUser = new Users(NameBox.ToString(), EmailBox.ToString());
-            UserListBox newUserListBox = new UserListBox();
-            UserListBox.Items.Add(newUser.Name());
-
+            userInputName = NameBox.Text;
+            userInputMail = EmailBox.Text;
+            Users.users.Add(new Users(userInputName.Trim(), userInputMail.Replace(" ", "")));
+            //Users user = new Users(NameBox.ToString(), EmailBox.ToString());
+            RefreshListBoxes();
         }
+
 
         private void MakeAdminButton_Click(object sender, RoutedEventArgs e)
         {
