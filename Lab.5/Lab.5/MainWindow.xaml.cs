@@ -20,7 +20,6 @@ namespace Lab._5
     /// </summary>
     public partial class MainWindow : Window
     {
-        public System.Collections.IEnumerable ItemsSource { get; set; }
         public string userInputName;
         public string userInputMail;
 
@@ -98,6 +97,44 @@ namespace Lab._5
             Users.users.Remove(selected);
             ClearTextFields();
             RefreshListBoxes();
+        }
+
+        private void UserListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UserListBox.SelectedItem != null)
+            {
+                AdminListBox.UnselectAll();
+                ClearTextFields();
+                var selected = (UserListBox.SelectedItem as Users);
+                NameBox.Text = selected.Name;
+                EmailBox.Text = selected.Mail;
+                MakeAdminButton.IsEnabled = true;
+                EditUserButton.IsEnabled = true;
+                DeleteUserButton.IsEnabled = true;
+            }
+            else
+            {
+                MakeAdminButton.IsEnabled = false;
+                EditUserButton.IsEnabled = false;
+                DeleteUserButton.IsEnabled = false;
+            }
+        }
+
+        private void AdminListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (AdminListBox.SelectedItem != null)
+            {
+                UserListBox.UnselectAll();
+                ClearTextFields();
+                var selected = (AdminListBox.SelectedItem as Users);
+                NameBox.Text = selected.Name;
+                EmailBox.Text = selected.Mail;
+                RemoveAdminButton.IsEnabled = true;
+            }
+            else
+            {
+                RemoveAdminButton.IsEnabled = false;
+            }
         }
     }
 }

@@ -14,12 +14,12 @@
         <Button x:Name="AddUserButton" Content="Add new user" HorizontalAlignment="Left" Margin="100,121,0,0" VerticalAlignment="Top" Width="80" Click="AddUserButton_Click"/>
         <Label x:Name="UserLable" Content="Users" HorizontalAlignment="Left" Margin="380,45,0,0" VerticalAlignment="Top"/>
         <Label x:Name="AdminLable" Content="Admin" HorizontalAlignment="Left" Margin="509,45,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="UserListBox" HorizontalAlignment="Left" Height="160" Margin="350,70,0,0" VerticalAlignment="Top" Width="100" />
-        <ListBox x:Name="AdminListBox" HorizontalAlignment="Left" Height="160" Margin="481,70,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="MakeAdminButton" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="455,126,0,0" VerticalAlignment="Top" Width="21" Click="MakeAdminButton_Click"/>
-        <Button x:Name="RemoveAdminButton" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="455,146,0,0" VerticalAlignment="Top" Width="21" Click="RemoveAdminButton_Click"/>
-        <Button x:Name="EditUserButton" Content="Edit user" HorizontalAlignment="Left" Margin="100,145,0,0" VerticalAlignment="Top" Width="80" Click="EditUserButton_Click"/>
-        <Button x:Name="DeleteUserButton" Content="Delete user" HorizontalAlignment="Left" Margin="100,169,0,0" VerticalAlignment="Top" Width="80" Click="DeleteUserButton_Click"/>
+        <ListBox x:Name="UserListBox" HorizontalAlignment="Left" Height="160" Margin="350,70,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="UserListBox_SelectionChanged" />
+        <ListBox x:Name="AdminListBox" HorizontalAlignment="Left" Height="160" Margin="481,70,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="AdminListBox_SelectionChanged"/>
+        <Button x:Name="MakeAdminButton" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="455,126,0,0" VerticalAlignment="Top" Width="21" Click="MakeAdminButton_Click" IsEnabled="False"/>
+        <Button x:Name="RemoveAdminButton" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="455,146,0,0" VerticalAlignment="Top" Width="21" Click="RemoveAdminButton_Click" IsEnabled="False"/>
+        <Button x:Name="EditUserButton" Content="Edit user" HorizontalAlignment="Left" Margin="100,145,0,0" VerticalAlignment="Top" Width="80" Click="EditUserButton_Click" IsEnabled="False"/>
+        <Button x:Name="DeleteUserButton" Content="Delete user" HorizontalAlignment="Left" Margin="100,169,0,0" VerticalAlignment="Top" Width="80" Click="DeleteUserButton_Click" IsEnabled="False"/>
 
     </Grid>
 </Window>
