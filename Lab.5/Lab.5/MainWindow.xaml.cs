@@ -48,9 +48,9 @@ namespace Lab._5
         {
             userInputName = NameBox.Text;
             userInputMail = EmailBox.Text;
-            Users.users.Add(new Users(userInputName.Trim(), userInputMail.Replace(" ", "")));
-            //Users user = new Users(NameBox.ToString(), EmailBox.ToString());
+            Users.users.Add(new Users(userInputName, userInputMail));
             RefreshListBoxes();
+            ClearTextFields();
         }
 
         private void MakeAdminButton_Click(object sender, RoutedEventArgs e)
@@ -79,12 +79,25 @@ namespace Lab._5
 
         private void EditUserButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var selected = Users.users[UserListBox.SelectedIndex];
+            userInputName = NameBox.Text;
+            userInputMail = EmailBox.Text;
+            if (selected != null)
+            {
+                selected.Name = userInputName;
+                selected.Mail = userInputMail;
+                RefreshListBoxes();
+                ClearTextFields();
+                UserListBox.UnselectAll();
+            }
         }
 
         private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var selected = Users.users[UserListBox.SelectedIndex];
+            Users.users.Remove(selected);
+            ClearTextFields();
+            RefreshListBoxes();
         }
     }
 }
