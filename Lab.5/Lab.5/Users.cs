@@ -17,6 +17,20 @@ namespace Lab._5
             Mail = email;
         }
 
+        public static void ToUser(Users user)
+        {
+            admins.Remove(user);
+            users.Add(user);
+        }
+
+        public static void ToAdmin(Users user)
+        {
+            users.Remove(user);
+            admins.Add(user);
+        }
+
+        
+
         public string Name { get; set; }
         public string Mail { get; set; }
     }

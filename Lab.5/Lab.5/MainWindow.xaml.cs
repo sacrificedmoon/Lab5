@@ -20,8 +20,11 @@ namespace Lab._5
     /// </summary>
     public partial class MainWindow : Window
     {
+        public System.Collections.IEnumerable ItemsSource { get; set; }
         public string userInputName;
         public string userInputMail;
+
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -50,13 +53,36 @@ namespace Lab._5
             RefreshListBoxes();
         }
 
-
         private void MakeAdminButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(UserListBox.SelectedIndex > -1)
+            {
+                var selected = Users.users[UserListBox.SelectedIndex];
+                Users.admins.Add(selected);
+                Users.users.Remove(selected);
+            }
+            ClearTextFields();
+            RefreshListBoxes();
+        }
+
+        private void RemoveAdminButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(AdminListBox.SelectedIndex > -1)
+            {
+                var selected = Users.admins[AdminListBox.SelectedIndex];
+                Users.users.Add(selected);
+                Users.admins.Remove(selected);
+            }
+            ClearTextFields();
+            RefreshListBoxes();
+        }
+
+        private void EditUserButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void RemoveAdminButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
