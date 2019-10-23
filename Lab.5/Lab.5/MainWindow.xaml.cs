@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+//Sofia Lindgren & Robin Nurmisto
+
 namespace Lab._5
 {
     /// <summary>
